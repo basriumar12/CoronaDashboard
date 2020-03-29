@@ -10,7 +10,10 @@ import com.example.coronadashboard.model.ResponseData;
 import com.example.coronadashboard.network.ApiInterface;
 import com.example.coronadashboard.network.ApiService;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -18,7 +21,7 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView tvPostif, tvMeninggal, tvSembuh;
+    TextView tvPostif, tvMeninggal, tvSembuh, tvDate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +32,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
 
+        tvDate = findViewById(R.id.tv_date);
         tvSembuh = findViewById(R.id.sembuh);
         tvMeninggal = findViewById(R.id.meninggal);
         tvPostif = findViewById(R.id.positif);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM  yyyy   ", Locale.getDefault());
+        String currentDateandTime = sdf.format(new Date());
+        tvDate.setText(currentDateandTime);
+
+
     }
 
     private void setData() {
