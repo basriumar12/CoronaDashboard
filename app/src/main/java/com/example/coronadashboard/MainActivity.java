@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.example.coronadashboard.Models.ResponseCovid19;
-import com.example.coronadashboard.MyRetrofit.ApiInterface;
-import com.example.coronadashboard.MyRetrofit.ServiceGenerator;
+import com.example.coronadashboard.model.ResponseData;
+import com.example.coronadashboard.network.ApiInterface;
+import com.example.coronadashboard.network.ApiService;
 
 import java.util.List;
 
@@ -23,28 +23,32 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initView();
+        setData();
+    }
+
+    private void initView() {
 
         tvSembuh = findViewById(R.id.sembuh);
         tvMeninggal = findViewById(R.id.meninggal);
         tvPostif = findViewById(R.id.positif);
-        setData();
     }
 
     private void setData() {
-        ApiInterface client = ServiceGenerator.createService(ApiInterface.class);
+        ApiInterface client = ApiService.createService(ApiInterface.class);
         // Fetch and print a list of the contributors to this library.
-        Call<List<ResponseCovid19>> call = client.get_covid19_indonesia();
+        Call<List<ResponseData>> call = client.getData();
 
-        call.enqueue(new Callback<List<ResponseCovid19>>() {
+        call.enqueue(new Callback<List<ResponseData>>() {
             @Override
-            public void onResponse(Call<List<ResponseCovid19>> call, Response<List<ResponseCovid19>> response) {
+            public void onResponse(Call<List<ResponseData>> call, Response<List<ResponseData>> response) {
                 try {
-                    List<ResponseCovid19> mResponseCovid19 = response.body();
+                    List<ResponseData> mResponseData = response.body();
 
 
-                    String postif = mResponseCovid19.get(0).getPositif();
-                    String sembuh = mResponseCovid19.get(0).getSembuh();
-                    String meninggal = mResponseCovid19.get(0).getMeninggal();
+                    String postif = mResponseData.get(0).getPositif();
+                    String sembuh = mResponseData.get(0).getSembuh();
+                    String meninggal = mResponseData.get(0).getMeninggal();
 
                     tvMeninggal.setText(meninggal);
                     tvPostif.setText(postif);
@@ -58,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<ResponseCovid19>> call, Throwable t) {
+            public void onFailure(Call<List<ResponseData>> call, Throwable t) {
                 Log.e("ERROR", "Error bro " + t.getMessage());
             }
         });

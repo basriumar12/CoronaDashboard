@@ -1,10 +1,10 @@
-package com.example.coronadashboard.Models;
+package com.example.coronadashboard.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("com.robohorse.robopojogenerator")
-public class ResponseCovid19{
+public class ResponseData {
 
 	@SerializedName("meninggal")
 	private String meninggal;

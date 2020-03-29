@@ -1,25 +1,22 @@
-package com.example.coronadashboard.MyRetrofit;
+package com.example.coronadashboard.network;
 
 /**
  * Created by macbookair on 5/19/17.
  */
 
-import com.example.coronadashboard.SharedPref;
+import com.example.coronadashboard.Constant;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * Created by Tri Suliswanto on 03/08/2016.
- */
-public class ServiceGenerator {
+public class ApiService {
 
     private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
 
     private static Retrofit.Builder builder =
             new Retrofit.Builder()
-                    .baseUrl(SharedPref.BASE_URL)
+                    .baseUrl(Constant.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create());
 
     public static <S> S createService(Class<S> serviceClass) {

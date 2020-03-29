@@ -30,7 +30,7 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/spacing_small"
             android:layout_weight="1"
-            android:background="@drawable/card"
+            android:background="@color/red_A100"
             android:backgroundTint="@color/red_800"
             android:orientation="vertical">
 
@@ -70,7 +70,7 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/spacing_small"
             android:layout_weight="1"
-            android:background="@drawable/card"
+            android:background="@color/blue_700"
             android:backgroundTint="@color/indigo_A400"
             android:orientation="vertical">
 
@@ -109,7 +109,7 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/spacing_small"
             android:layout_weight="1"
-            android:background="@drawable/card"
+            android:background="@color/yellow_A400"
             android:backgroundTint="@color/yellow_600"
             android:orientation="vertical">
 

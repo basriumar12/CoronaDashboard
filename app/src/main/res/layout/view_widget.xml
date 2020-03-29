@@ -8,14 +8,15 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/appwidget_text"
+        android:gravity="center_horizontal"
         android:text="Info COVID-19 Di Indonesia"
         android:textAlignment="center"
         android:textColor="#ffffff"
         android:textSize="24sp"
-        android:textStyle="bold|italic"
-        android:gravity="center_horizontal" />
+        android:textStyle="bold|italic" />
 
     <LinearLayout
+        android:id="@+id/rootLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -26,7 +27,7 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/spacing_small"
             android:layout_weight="1"
-            android:background="@drawable/card"
+            android:background="@color/red_A100"
             android:backgroundTint="@color/red_800"
             android:orientation="vertical">
 
@@ -38,12 +39,12 @@
                 android:layout_margin="8dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/appwidget_text"
+                android:gravity="center_horizontal"
                 android:text="@string/positif"
                 android:textAlignment="center"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/text_16"
-                android:textStyle="bold|italic"
-                android:gravity="center_horizontal" />
+                android:textStyle="bold|italic" />
 
             <TextView
                 android:id="@+id/positif"
@@ -53,12 +54,12 @@
                 android:layout_margin="8dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/appwidget_text"
+                android:gravity="center_horizontal"
                 android:text="323"
                 android:textAlignment="center"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/text_16"
-                android:textStyle="bold"
-                android:gravity="center_horizontal" />
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -66,7 +67,7 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/spacing_small"
             android:layout_weight="1"
-            android:background="@drawable/card"
+            android:background="@color/blue_700"
             android:backgroundTint="@color/indigo_A400"
             android:orientation="vertical">
 
@@ -77,12 +78,12 @@
                 android:layout_margin="8dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/appwidget_text"
+                android:gravity="center_horizontal"
                 android:text="@string/sembuh"
                 android:textAlignment="center"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/text_16"
-                android:textStyle="bold|italic"
-                android:gravity="center_horizontal" />
+                android:textStyle="bold|italic" />
 
             <TextView
                 android:id="@+id/sembuh"
@@ -92,12 +93,12 @@
                 android:layout_margin="8dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/appwidget_text"
+                android:gravity="center_horizontal"
                 android:text="..."
                 android:textAlignment="center"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/text_16"
-                android:textStyle="bold"
-                android:gravity="center_horizontal" />
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -105,7 +106,7 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/spacing_small"
             android:layout_weight="1"
-            android:background="@drawable/card"
+            android:background="@color/yellow_A400"
             android:backgroundTint="@color/yellow_600"
             android:orientation="vertical">
 
@@ -116,12 +117,12 @@
                 android:layout_margin="8dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/appwidget_text"
+                android:gravity="center_horizontal"
                 android:text="@string/meninggal"
                 android:textAlignment="center"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/text_16"
-                android:textStyle="bold|italic"
-                android:gravity="center_horizontal" />
+                android:textStyle="bold|italic" />
 
             <TextView
                 android:id="@+id/meninggal"
@@ -139,17 +140,18 @@
         </LinearLayout>
 
     </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/appwidget_text"
+        android:gravity="center_horizontal"
         android:text="Tetap Stay Di Rumah"
         android:textAlignment="center"
         android:textColor="#ffffff"
         android:textSize="24sp"
-        android:textStyle="bold|italic"
-        android:gravity="center_horizontal" />
+        android:textStyle="bold|italic" />
 
 
 </LinearLayout>
