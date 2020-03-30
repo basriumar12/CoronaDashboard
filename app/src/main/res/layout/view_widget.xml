@@ -13,7 +13,18 @@
         android:text="Info COVID-19 Di Indonesia"
         android:textAlignment="center"
         android:textColor="#ffffff"
-        android:textSize="24sp"
+        android:textSize="16sp"
+        android:textStyle="bold|italic" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/appwidget_text"
+        android:gravity="center_horizontal"
+        android:text="Info COVID-19 Di Indonesia"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
         android:textStyle="bold|italic" />
 
     <LinearLayout
@@ -28,8 +39,8 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/spacing_small"
             android:layout_weight="1"
-            android:background="@color/red_A100"
-            android:backgroundTint="@color/red_800"
+            android:background="#f82649"
+            android:backgroundTint="#f82649"
             android:orientation="vertical">
 
             <TextView
@@ -68,8 +79,7 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/spacing_small"
             android:layout_weight="1"
-            android:background="@color/blue_700"
-            android:backgroundTint="@color/indigo_A400"
+            android:background="#09ad95"
             android:orientation="vertical">
 
             <TextView
@@ -107,8 +117,7 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/spacing_small"
             android:layout_weight="1"
-            android:background="@color/yellow_A400"
-            android:backgroundTint="@color/yellow_600"
+            android:background="#f9a825"
             android:orientation="vertical">
 
             <TextView
@@ -151,7 +160,7 @@
         android:text="#DiRumahAja"
         android:textAlignment="center"
         android:textColor="#ffffff"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold|italic" />
 
 

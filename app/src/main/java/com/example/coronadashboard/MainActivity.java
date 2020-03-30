@@ -1,14 +1,20 @@
 package com.example.coronadashboard;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.example.coronadashboard.model.ResponseData;
 import com.example.coronadashboard.network.ApiInterface;
 import com.example.coronadashboard.network.ApiService;
+import com.example.coronadashboard.ui.DataDuniaActivity;
+import com.example.coronadashboard.ui.DataProvinsiActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,6 +28,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     TextView tvPostif, tvMeninggal, tvSembuh, tvDate;
+    String title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,5 +83,39 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("ERROR", "Error bro " + t.getMessage());
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        setMode(item.getItemId());
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void setMode(int selectedMode) {
+        switch (selectedMode) {
+            case R.id.menu_dunia:
+                title = "Data Dunia";
+                startActivity(new Intent(this, DataDuniaActivity.class));
+                break;
+
+            case R.id.menu_provinsi:
+                title = "Data Provinsi";
+                startActivity(new Intent(this, DataProvinsiActivity.class));
+                break;
+
+
+        }
+        setActionBarTitle(title);
+    }
+
+    private void setActionBarTitle(String title) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(title);
+        }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }

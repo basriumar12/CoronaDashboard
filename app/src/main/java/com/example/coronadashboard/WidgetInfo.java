@@ -15,7 +15,10 @@ import com.example.coronadashboard.model.ResponseData;
 import com.example.coronadashboard.network.ApiInterface;
 import com.example.coronadashboard.network.ApiService;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,6 +37,9 @@ public class WidgetInfo extends AppWidgetProvider {
         CharSequence widgetText = context.getString(R.string.appwidget_text);
         // Construct the RemoteViews object
         final RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.view_widget);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM  yyyy   ", Locale.getDefault());
+        String currentDateandTime = sdf.format(new Date());
+        views.setTextViewText(R.id.tv_date, currentDateandTime);
 
 
         // Create a very simple REST adapter which points the GitHub API endpoint.
