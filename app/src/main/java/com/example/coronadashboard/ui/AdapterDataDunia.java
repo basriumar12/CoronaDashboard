@@ -40,7 +40,7 @@ public class AdapterDataDunia extends RecyclerView.Adapter<AdapterDataDunia.MyVi
     public void onBindViewHolder(@NonNull AdapterDataDunia.MyViewHolder holder, int position) {
 //
         holder.tvSembuh.setText(""+lisData.get(position).getRecovered());
-        holder.tvPositif.setText(""+lisData.get(position).getActive());
+        holder.tvPositif.setText(""+lisData.get(position).getConfirmed());
         holder.tvMeninggal.setText(""+lisData.get(position).getDeaths());
         holder.tvProvinsi.setText(lisData.get(position).getCountryRegion());
     }
