@@ -10,11 +10,12 @@
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/appwidget_text"
         android:gravity="center_horizontal"
-        android:text="Info COVID-19 Di Indonesia"
+        android:text="Loading..."
         android:textAlignment="center"
         android:textColor="#ffffff"
         android:textSize="16sp"
-        android:textStyle="bold|italic" />
+        android:fontFamily="@font/poppinsbold"
+        android:textStyle="bold" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,7 +26,8 @@
         android:textAlignment="center"
         android:textColor="#ffffff"
         android:textSize="20sp"
-        android:textStyle="bold|italic" />
+        android:fontFamily="@font/poppinsbold"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:id="@+id/rootLayout"
@@ -67,7 +69,7 @@
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/appwidget_text"
                 android:gravity="center_horizontal"
-                android:text="323"
+                android:text="loading..."
                 android:textAlignment="center"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/text_16"
@@ -105,7 +107,7 @@
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/appwidget_text"
                 android:gravity="center_horizontal"
-                android:text="..."
+                android:text="loading..."
                 android:textAlignment="center"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/text_16"
@@ -142,7 +144,7 @@
                 android:layout_margin="8dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/appwidget_text"
-                android:text="..."
+                android:text="loading..."
                 android:textAlignment="center"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/text_16"
@@ -160,8 +162,9 @@
         android:text="#DiRumahAja"
         android:textAlignment="center"
         android:textColor="#ffffff"
-        android:textSize="20sp"
-        android:textStyle="bold|italic" />
+        android:textSize="16sp"
+        android:fontFamily="@font/poppinsbold"
+        android:textStyle="bold" />
 
 
 </LinearLayout>

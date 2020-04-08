@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.coronadashboard">
+    package="com.basbas.lawanqfid">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -8,14 +8,25 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_flag"
+        android:icon="@mipmap/odp"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_flag"
+        android:roundIcon="@mipmap/odp"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ui.DataProvinsiActivity"></activity>
-        <activity android:name=".ui.DataDuniaActivity"></activity>
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name=".ui.data_sebaran.DataGorontaloActivity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ui.data_sebaran.DataSebaranActivity"
+            android:theme="@style/AppTheme"
+            />
+        <activity android:name=".ui.home.HomeActivity" />
+        <activity
+            android:name=".ui.DataProvinsiActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.DataDuniaActivity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ui.splash.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +34,10 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".WidgetInfo">
+        <receiver android:name=".ui.widget.WidgetInfo"
+            android:icon="@drawable/ic_kasus"
+            android:label="@string/app_name"
+            >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -31,6 +45,20 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/set_widget_view" />
+        </receiver>
+
+
+        <receiver android:name=".ui.widget.WidgetInfoGorontalo"
+            android:icon="@drawable/ic_sembuh"
+            android:label="@string/gorontalo"
+            >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/set_widget_view_gorontalo" />
         </receiver>
     </application>
 

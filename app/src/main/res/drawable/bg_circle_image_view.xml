@@ -15,8 +15,8 @@
             <corners android:radius="6dp" />
             <stroke
                 android:width="4dp"
-                android:color="@color/bgImage" ></stroke>
-            <size android:width="67dp" android:height="67dp"/>
+                android:color="#fff" ></stroke>
+            <size android:width="50dp" android:height="50dp"/>
         </shape>
     </item>
 </selector>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".ui.splash.SplashScreenActivity">
+
+    <TextView
+        android:id="@+id/tv_greeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="Selamat Pagi #DirumahAja"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        tools:targetApi="jelly_bean" />
+    <TextView
+        android:id="@+id/tv_cegah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsbold"
+        android:text="Bersama-sama kita"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        tools:targetApi="jelly_bean" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppinsbold"
+        android:text="Cegah Covid-19"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        tools:targetApi="jelly_bean" />
+
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_kasus_positif"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+
+</LinearLayout>

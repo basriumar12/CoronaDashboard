@@ -2,9 +2,9 @@
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:initialKeyguardLayout="@layout/view_widget"
     android:initialLayout="@layout/view_widget"
-    android:minWidth="250dp"
-    android:minHeight="140dp"
-    android:previewImage="@mipmap/ic_flag"
+    android:minWidth="300dp"
+    android:minHeight="150dp"
+    android:previewImage="@mipmap/odp"
     android:resizeMode="horizontal"
     android:updatePeriodMillis="300000"
     android:widgetCategory="home_screen|keyguard">

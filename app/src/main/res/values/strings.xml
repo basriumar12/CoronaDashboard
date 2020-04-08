@@ -1,11 +1,20 @@
 <resources>
-    <string name="app_name">Corona Dashboard</string>
-    <string name="appwidget_text">Covid-19 Indonesia</string>
+    <string name="app_name">Cegah Penyakit</string>
+    <string name="appwidget_text">Cegah Penyakit</string>
     <string name="add_widget">Add widget</string>
 
     <string name="positif">Positif</string>
+    <string name="indo">Widget Indonesia</string>
+    <string name="gorontalo">Widget Gorontalo</string>
     <string name="sembuh">Sembuh</string>
     <string name="meninggal">Meninggal</string>
     <string name="aktfikan_widget_di_home_screen_handphone">Aktifkan Widget di Home Screen Handphone</string>
-    <string name="positif_corona">Positif Corona</string>
+    <string name="positif_corona">Positif</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="update_kasus_corona">Update Kasus Corona</string>
+    <string name="update_kasus_corona_gorontalo">Update kasus corona di Provinsi Gorontalo</string>
+    <string name="odp">ODP</string>
+    <string name="pdp">PDP</string>
 </resources>

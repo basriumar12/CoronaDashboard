@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    android:layout_marginTop="6dp"
+    android:layout_marginBottom="6dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_marginTop="26dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <androidx.cardview.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/card_penulis"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            app:cardBackgroundColor="@color/bgImage"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_marginTop="38dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_margin="6dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:gravity="center"
+                            android:ellipsize="marquee"
+                            android:maxLines="2"
+                            android:layout_gravity="center"
+                            android:textSize="16dp"
+                            android:textColor="@color/yellow_800"
+                            android:text="@string/odp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/roboto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            />
+                        <TextView
+                            android:id="@+id/tv_odp"
+                            android:gravity="center"
+                            android:ellipsize="marquee"
+                            android:maxLines="2"
+                            android:layout_gravity="center"
+                            android:textSize="20dp"
+                            android:textColor="@color/yellow_800"
+                            android:text="loading.."
+                            android:textStyle="bold"
+                            android:fontFamily="@font/roboto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"/>
+
+
+
+
+
+
+
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+
+    <ImageView
+        android:background="@drawable/bg_circle_image_view"
+        android:layout_centerHorizontal="true"
+        android:padding="6dp"
+        android:src="@mipmap/odp"
+        android:id="@+id/iv_browse_writer"
+        android:adjustViewBounds="true"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        />
+
+
+</RelativeLayout>

@@ -8,12 +8,12 @@
 
     <item
         android:id="@+id/nav_menu_informasi"
-        android:icon="@drawable/ic_informasi"
-        android:title="Informasi" />
+        android:icon="@drawable/ic_map_black_24dp"
+        android:title="Map" />
 
     <item
         android:id="@+id/nav_menu_bantuan"
-        android:icon="@drawable/ic_bantuan"
+        android:icon="@drawable/ic_informasi"
         android:title="Bantuan" />
 
 </menu>

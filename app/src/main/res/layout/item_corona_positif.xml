@@ -23,7 +23,7 @@
             app:cardCornerRadius="4dp"
             app:cardElevation="0dp"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="130dp"
             app:cardBackgroundColor="@color/bgImage"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
@@ -49,15 +49,30 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-
                         <TextView
+                            android:layout_marginTop="5dp"
                             android:gravity="center"
                             android:ellipsize="marquee"
                             android:maxLines="2"
                             android:layout_gravity="center"
-                            android:textSize="20dp"
-                            android:textColor="@color/red_A100"
-                            android:text="0"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorOrange"
+                            android:text="@string/positif_corona"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/roboto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_positif"
+                            android:gravity="center"
+                            android:ellipsize="marquee"
+                            android:maxLines="2"
+                            android:layout_gravity="center"
+                            android:textSize="20sp"
+                            android:textColor="@color/colorOrange"
+                            android:text="loading.."
                             android:textStyle="bold"
                             android:fontFamily="@font/roboto"
                             android:layout_width="wrap_content"
@@ -66,19 +81,21 @@
 
 
                             <TextView
+                                android:id="@+id/tv_tambah_positif"
                                 android:layout_marginTop="5dp"
                                 android:gravity="center"
                                 android:ellipsize="marquee"
                                 android:maxLines="2"
                                 android:layout_gravity="center"
-                                android:textSize="16dp"
-                                android:textColor="@color/red_A100"
-                                android:text="@string/positif_corona"
+                                android:textSize="16sp"
+                                android:textColor="@color/colorSoftBlack"
+                                android:text=""
                                 android:textStyle="bold"
                                 android:fontFamily="@font/roboto"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 />
+
 
 
 
@@ -102,8 +119,8 @@
         android:src="@drawable/ic_kasus_positif"
         android:id="@+id/iv_browse_writer"
         android:adjustViewBounds="true"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         />
 
 </RelativeLayout>

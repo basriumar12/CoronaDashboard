@@ -1,0 +1,287 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/rootLayout"
+    android:orientation="vertical">
+
+    <TextView
+        android:fontFamily="@font/roboto"
+        android:id="@+id/tv_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/appwidget_text"
+        android:text="Loading..."
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+    <TextView
+        android:fontFamily="@font/poppinsbold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/appwidget_text"
+        android:text="Info COVID-19 Provinsi Gorontalo"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing_small">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/spacing_small"
+            android:layout_weight="1"
+            android:background="@color/yellow_A700"
+            android:backgroundTint="@color/yellow_A700"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:fontFamily="@font/poppinsbold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="8dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/appwidget_text"
+                android:gravity="center_horizontal"
+                android:text="@string/odp"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_16"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:fontFamily="@font/poppinsbold"
+
+                android:id="@+id/tv_odp_gorontalo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="8dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/appwidget_text"
+                android:gravity="center_horizontal"
+                android:text="Loading"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_16"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/spacing_small"
+            android:layout_weight="1"
+            android:background="@color/green_A700"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="8dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/appwidget_text"
+                android:gravity="center_horizontal"
+                android:text="@string/pdp"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_16"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:fontFamily="@font/poppinsbold"
+
+                android:id="@+id/tv_pdp_gorontalo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="8dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/appwidget_text"
+                android:gravity="center_horizontal"
+                android:text="Loading"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_16"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing_small">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/spacing_small"
+            android:layout_weight="1"
+            android:background="#f82649"
+            android:backgroundTint="#f82649"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:fontFamily="@font/poppinsbold"
+
+                android:id="@+id/appwidget_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="8dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/appwidget_text"
+                android:gravity="center_horizontal"
+                android:text="@string/positif"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_16"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:fontFamily="@font/poppinsbold"
+
+                android:id="@+id/tv_positif"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="8dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/appwidget_text"
+                android:gravity="center_horizontal"
+                android:text="Loading"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_16"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/spacing_small"
+            android:layout_weight="1"
+            android:background="#09ad95"
+            android:orientation="vertical">
+
+            <TextView
+                android:fontFamily="@font/poppinsbold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="8dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/appwidget_text"
+                android:gravity="center_horizontal"
+                android:text="@string/sembuh"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_16"
+                android:textStyle="bold|italic" />
+
+
+            <TextView
+                android:fontFamily="@font/poppinsbold"
+
+                android:id="@+id/tv_sembuh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginBottom="5dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/appwidget_text"
+                android:gravity="center_horizontal"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_16"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/spacing_small"
+            android:layout_weight="1"
+            android:background="#f9a825"
+            android:orientation="vertical">
+
+            <TextView
+                android:fontFamily="@font/poppinsbold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="8dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/appwidget_text"
+                android:gravity="center_horizontal"
+                android:text="@string/meninggal"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/text_16"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:id="@+id/tv_meninggal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="8dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/appwidget_text"
+                android:text="Laoding"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/poppinsbold"
+                android:textSize="@dimen/text_16"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_tag"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/appwidget_text"
+        android:text="#DiRumahJoUti"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/poppinsbold"
+        android:textSize="@dimen/text_16"
+        android:textStyle="bold" />
+
+
+</LinearLayout>
