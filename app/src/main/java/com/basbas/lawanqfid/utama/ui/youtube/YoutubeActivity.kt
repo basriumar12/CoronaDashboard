@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_youtube.*
 
 
 class YoutubeActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener {
-    val YOUTUBE_API_KEY = "AIzaSyASxs8XEaG-cjcNu2Ubr75wb-5AxkPz27g"
+    val Key ="aa"// "AIzaSyASxs8XEaG-cjcNu2Ubr75wb-5AxkPz27g"
     private var playerStateChangeListener: MyPlayerStateChangeListener? = null
     private var playbackEventListener: MyPlaybackEventListener? = null
     private var player: YouTubePlayer? = null
@@ -21,7 +21,7 @@ class YoutubeActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListen
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_youtube)
 
-        youtube_view.initialize(YOUTUBE_API_KEY,this@YoutubeActivity)
+        youtube_view.initialize(Key,this@YoutubeActivity)
         playerStateChangeListener = MyPlayerStateChangeListener()
         playbackEventListener = MyPlaybackEventListener()
 
@@ -52,7 +52,7 @@ class YoutubeActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListen
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RECOVERY_REQUEST) {
             // Retry initialization if user performed a recovery action
-            getYouTubePlayerProvider()?.initialize(YOUTUBE_API_KEY, this@YoutubeActivity);
+            getYouTubePlayerProvider()?.initialize(Key, this@YoutubeActivity);
         }
     }
 
