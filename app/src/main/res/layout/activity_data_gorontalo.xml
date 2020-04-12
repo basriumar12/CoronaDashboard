@@ -20,7 +20,7 @@
             android:layout_margin="16dp"
 
             android:orientation="vertical"
-            tools:context=".ui.data_sebaran.DataGorontaloActivity">
+            tools:context=".utama.ui.data_sebaran.DataGorontaloActivity">
 
             <TextView
                 android:layout_width="match_parent"

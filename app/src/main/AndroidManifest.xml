@@ -3,41 +3,74 @@
     package="com.basbas.lawanqfid">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
 
     <application
+        android:name=".AppController"
         android:allowBackup="true"
         android:icon="@mipmap/odp"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/odp"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar">
-        <activity
-            android:name=".ui.data_sebaran.DataGorontaloActivity"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".ui.data_sebaran.DataSebaranActivity"
+        android:theme="@style/AppTheme.NoActionBar"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".utama.ui.detail_berita.DetailBeritaActivity"
             android:theme="@style/AppTheme"
-            />
-        <activity android:name=".ui.home.HomeActivity" />
+            ></activity>
         <activity
-            android:name=".ui.DataProvinsiActivity"
+            android:name=".utama.ui.web.WebBeritaActivity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".utama.ui.youtube.YoutubeActivity" />
+        <activity android:name=".utama.ui.web.WebActivity" />
+        <activity
+            android:name=".utama.ui.data_sebaran.DataGorontaloActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".ui.DataDuniaActivity"
+            android:name=".utama.ui.data_sebaran.DataSebaranActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".ui.splash.SplashScreenActivity">
+        <activity android:name=".utama.ui.home.HomeActivity" />
+        <activity
+            android:name=".utama.ui.DataProvinsiActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".utama.ui.DataDuniaActivity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".utama.ui.splash.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.percountry.indonesia.CountryIndonesiaActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".ui.dailygraph.DailyGraphActivity"
+            android:configChanges="orientation" />
+        <activity
+            android:name=".ui.detail.DetailActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.overview.DashboardActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
 
-        <receiver android:name=".ui.widget.WidgetInfo"
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDW1AJRJaJqYW0TV2COEfzi6YpgKJcByyE" />
+
+        <receiver
+            android:name=".utama.ui.widget.WidgetInfo"
             android:icon="@drawable/ic_kasus"
-            android:label="@string/app_name"
-            >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -46,12 +79,10 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/set_widget_view" />
         </receiver>
-
-
-        <receiver android:name=".ui.widget.WidgetInfoGorontalo"
+        <receiver
+            android:name=".utama.ui.widget.WidgetInfoGorontalo"
             android:icon="@drawable/ic_sembuh"
-            android:label="@string/gorontalo"
-            >
+            android:label="@string/gorontalo">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -60,6 +91,16 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/set_widget_view_gorontalo" />
         </receiver>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" /> <!-- <service android:name=".service.NotificationJobService" -->
+        <!-- android:permission="android.permission.BIND_JOB_SERVICE" /> -->
+        <service android:name=".service.FirebaseMessageService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

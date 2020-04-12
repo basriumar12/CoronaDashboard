@@ -7,39 +7,44 @@
     android:background="@color/colorPrimary"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".ui.splash.SplashScreenActivity">
+    tools:context=".utama.ui.splash.SplashScreenActivity">
+
 
     <TextView
+        android:textStyle="bold"
         android:id="@+id/tv_greeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto"
-        android:text="Selamat Pagi #DirumahAja"
+        android:fontFamily="@font/poppinsbold"
+        android:text="Selamat Pagi \n#DirumahAja"
         android:textColor="@android:color/white"
         android:textSize="20sp"
         tools:targetApi="jelly_bean" />
     <TextView
+        android:visibility="gone"
+
         android:id="@+id/tv_cegah"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinsbold"
-        android:text="Bersama-sama kita"
+        android:text="Ayo Bersama-sama kita"
         android:textColor="@android:color/white"
         android:textSize="25sp"
         tools:targetApi="jelly_bean" />
     <TextView
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppinsbold"
-        android:text="Cegah Covid-19"
+        android:text="Lawan Covid-19"
         android:textColor="@android:color/white"
         android:textSize="25sp"
         tools:targetApi="jelly_bean" />
 
-    <ImageView
-        android:layout_marginTop="10dp"
-        android:src="@drawable/ic_kasus_positif"
-        android:layout_width="100dp"
-        android:layout_height="100dp"/>
+<!--    <ImageView-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:src="@drawable/ic_kasus_positif"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"/>-->
 
 </LinearLayout>

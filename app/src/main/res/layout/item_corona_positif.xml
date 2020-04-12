@@ -70,7 +70,7 @@
                             android:ellipsize="marquee"
                             android:maxLines="2"
                             android:layout_gravity="center"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             android:textColor="@color/colorOrange"
                             android:text="loading.."
                             android:textStyle="bold"

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "525217448367",
+    "firebase_url": "https://181908.firebaseio.com",
+    "project_id": "youtube-181908",
+    "storage_bucket": "youtube-181908.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525217448367:android:70e91aa20f9edbca296f5a",
+        "android_client_info": {
+          "package_name": "com.basbas.ayobersama"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525217448367-j5n197knq97p87gufo9blrasljth6949.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.basbas.ayobersama",
+            "certificate_hash": "4f06995d801bd82c32eb64ef63db9ae9d6901ead"
+          }
+        },
+        {
+          "client_id": "525217448367-902khpg5r36ghb0edvpr6nnfb29v6q7k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXSa-v2xGlZDIB2hRkEhrOCQSTET7jYrA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525217448367-902khpg5r36ghb0edvpr6nnfb29v6q7k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

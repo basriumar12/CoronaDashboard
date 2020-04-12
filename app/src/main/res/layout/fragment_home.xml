@@ -42,7 +42,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/roboto"
-                android:text="Selamat Pagi #DirumahAja"
+                android:text="Loading...."
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
                 tools:targetApi="jelly_bean" />
@@ -55,7 +55,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="50dp"
                 android:fontFamily="@font/poppinsbold"
-                android:text="Bersama-sama kita  \nCegah Covid-19 "
+                android:text="Ayo Bersama-sama kita  \Lawan Covid-19 "
                 android:textColor="@android:color/white"
                 android:textSize="25sp"
                 tools:targetApi="jelly_bean" />
@@ -167,12 +167,12 @@
                             android:padding="5dp">
 
 
-
                             <include
                                 layout="@layout/item_corona_sembuh"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1" />
+
                             <include
                                 layout="@layout/item_corona_meninggal"
                                 android:layout_width="wrap_content"
@@ -195,11 +195,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="25dp"
                     android:fontFamily="@font/poppinsbold"
-                    android:text="Data Seluruh Provinsi Di Indonesia"
+                    android:text="Check Diri anda, Klik 'Self Check' "
                     android:textColor="@color/colorSoftBlack"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     tools:targetApi="jelly_bean" />
 
                 <androidx.cardview.widget.CardView
@@ -217,9 +217,9 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/ic_bg_map"
                             android:gravity="center"
-                            android:scaleType="centerCrop" />
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/check" />
 
                         <View
                             android:layout_width="fill_parent"
@@ -232,60 +232,60 @@
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:background="@drawable/bg_map"
-                            android:text="Lihat Detail"
+                            android:text="Self Check"
                             android:textAllCaps="false"
                             android:textColor="@android:color/white" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/btn_seluruh_provinsi"
+                            android:layout_centerInParent="true"
+                            android:gravity="center"
+                            android:text="@string/check_up_jatim_covid_19"
+                            android:textColor="@color/cfdialog_button_white_text_color" />
 
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>
 
-                <TextView
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/poppinsbold"
+                        android:text="Informasi dan Tips"
+                        android:textColor="@color/colorSoftBlack"
+                        android:textSize="16sp"
+                        tools:targetApi="jelly_bean" />
+
+
+                    <TextView
+                        android:id="@+id/tv_lihat_semua_berita"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_weight="1"
+                        android:drawableEnd="@drawable/ic_right"
+                        android:drawableRight="@android:drawable/arrow_down_float"
+                        android:fontFamily="@font/roboto"
+                        android:gravity="right"
+                        android:text="@string/lihat_semua"
+                        android:textColor="@color/colorGreen"
+                        android:textSize="16sp"
+                        tools:targetApi="jelly_bean" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_berita"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:fontFamily="@font/poppinsbold"
-                    android:text="Data Seluruh Negara"
-                    android:textColor="@color/colorSoftBlack"
-                    android:textSize="18sp"
-                    tools:targetApi="jelly_bean" />
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/result_cv"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_margin="5dp"
-                    app:cardCornerRadius="15dp"
-                    app:cardElevation="5dp"
-                    app:cardPreventCornerOverlap="false">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/ic_bg_map"
-                            android:gravity="center"
-                            android:scaleType="centerCrop" />
-
-                        <View
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:background="@color/colorTransparentBlack" />
-
-                        <Button
-                            android:id="@+id/btn_seluruh_negara"
-                            android:layout_width="150dp"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:background="@drawable/bg_map"
-                            android:text="Lihat Detail"
-                            android:textAllCaps="false"
-                            android:textColor="@android:color/white" />
-
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
+                    tools:listitem="@layout/item_berita" />
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>
