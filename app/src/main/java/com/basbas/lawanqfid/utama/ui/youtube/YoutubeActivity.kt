@@ -2,7 +2,9 @@ package com.basbas.lawanqfid.utama.ui.youtube
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import com.basbas.lawanqfid.R
+import com.basbas.lawanqfid.utama.model.youtube.DataItemYoutube
 import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
@@ -12,28 +14,34 @@ import kotlinx.android.synthetic.main.activity_youtube.*
 
 
 class YoutubeActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener {
-    val Key ="aa"// "AIzaSyASxs8XEaG-cjcNu2Ubr75wb-5AxkPz27g"
+    val Key ="AIzaSyASxs8XEaG-cjcNu2Ubr75wb-5AxkPz27g"
     private var playerStateChangeListener: MyPlayerStateChangeListener? = null
     private var playbackEventListener: MyPlaybackEventListener? = null
     private var player: YouTubePlayer? = null
     private val RECOVERY_REQUEST = 1
+    var dataItem = DataItemYoutube()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_youtube)
-
+        dataItem = intent.getParcelableExtra("DATA")
         youtube_view.initialize(Key,this@YoutubeActivity)
         playerStateChangeListener = MyPlayerStateChangeListener()
         playbackEventListener = MyPlaybackEventListener()
 
     }
-
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            finish()
+        }
+        return super.onOptionsItemSelected(item)
+    }
     override fun onInitializationSuccess(p0: YouTubePlayer.Provider?, p1: YouTubePlayer?, p2: Boolean) {
      //   player = p1
         p1?.setPlayerStateChangeListener(playerStateChangeListener)
         p1?.setPlaybackEventListener(playbackEventListener);
 
         if (!p2) {
-            p1?.cueVideo("fhWaJi1Hsfo"); // Plays https://www.youtube.com/watch?v=fhWaJi1Hsfo
+            p1?.cueVideo(dataItem.url); // Plays https://www.youtube.com/watch?v=fhWaJi1Hsfo
         }
 
 

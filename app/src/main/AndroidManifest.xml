@@ -17,9 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".utama.ui.detail_berita.DetailBeritaActivity"
+        <activity android:name=".utama.ui.youtube.DetailYoutubeActivity"
             android:theme="@style/AppTheme"
             ></activity>
+        <activity
+            android:name=".utama.ui.detail_berita.DetailBeritaActivity"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".utama.ui.web.WebBeritaActivity"
             android:theme="@style/AppTheme" />

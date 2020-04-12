@@ -4,13 +4,13 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
-import androidx.appcompat.app.AppCompatActivity
 import com.basbas.lawanqfid.R
+import com.basbas.lawanqfid.utama.base.BaseActivity
 import com.basbas.lawanqfid.utama.ui.home.HomeActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
 
-class SplashScreenActivity : AppCompatActivity() {
+class SplashScreenActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

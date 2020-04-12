@@ -5,6 +5,7 @@ import com.basbas.lawanqfid.utama.model.ResponseData;
 import com.basbas.lawanqfid.utama.model.ResponseDataWorld;
 import com.basbas.lawanqfid.utama.model.berita.ResponseBerita;
 import com.basbas.lawanqfid.utama.model.provinsi.ResponseDataProvinsi;
+import com.basbas.lawanqfid.utama.model.youtube.ResponseYoutube;
 import com.basbas.lawanqfid.utama.ui.fragment.home_fragment.model.ResponseDataFromSpreadSheet;
 
 import java.util.List;
@@ -23,6 +24,9 @@ public interface ApiInterface {
     Call<ResponseDataFromSpreadSheet> getDataFromSpreadsheet(@Query("id")String id, @Query("sheet")String sheet);
     @GET("exec")
     Call<ResponseBerita> getDataBerita(@Query("id")String id, @Query("sheet")String sheet);
+
+    @GET("exec")
+    Call<ResponseYoutube> getDataYoutube(@Query("id")String id, @Query("sheet")String sheet);
 
     @GET("indonesia/provinsi")
     Call<List<ResponseDataProvinsi>> getDataProvinsi();

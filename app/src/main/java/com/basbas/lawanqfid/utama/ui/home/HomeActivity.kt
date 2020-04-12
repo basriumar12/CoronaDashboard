@@ -2,9 +2,9 @@ package com.basbas.lawanqfid.utama.ui.home
 
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.basbas.lawanqfid.R
+import com.basbas.lawanqfid.utama.base.BaseActivity
 import com.basbas.lawanqfid.utama.ui.fragment.bantuan.BantuanFragment
 import com.basbas.lawanqfid.utama.ui.fragment.home_fragment.HomeFragment
 import com.basbas.lawanqfid.utama.ui.fragment.map.MapsWorldFragment
@@ -13,7 +13,7 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_main_two.*
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity() {
     //implements BottomNavigationView.OnNavigationItemSelectedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

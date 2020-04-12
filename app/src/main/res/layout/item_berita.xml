@@ -41,7 +41,7 @@
         <TextView
             android:id="@+id/tv_title_berita"
             android:background="@color/colorTransparentBlack"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:layout_alignParentBottom="true"
             android:fontFamily="@font/poppinsbold"
             android:gravity="center"

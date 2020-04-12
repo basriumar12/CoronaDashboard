@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="5dp"
+    app:cardPreventCornerOverlap="false">
+
+    <RelativeLayout
+        android:id="@+id/parent_berita"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/img_berita"
+            android:src="@drawable/check"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:scaleType="centerCrop" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/colorTransparentBlack" />
+
+        <Button
+
+            android:id="@+id/btn_youtube"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bg_map"
+            android:text="Klik Detail"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
+        <TextView
+            android:id="@+id/tv_title_berita"
+            android:background="@color/colorTransparentBlack"
+            android:textSize="14sp"
+            android:maxLength="40"
+            android:layout_alignParentBottom="true"
+            android:fontFamily="@font/poppinsbold"
+            android:gravity="center"
+            android:text="loading..."
+            android:textColor="@color/cfdialog_button_white_text_color"
+            android:layout_centerInParent="true"
+      
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
+
+

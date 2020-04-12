@@ -12,13 +12,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.basbas.lawanqfid.R
 import com.basbas.lawanqfid.ui.percountry.indonesia.CountryIndonesiaActivity
 import com.basbas.lawanqfid.utama.model.berita.ResponseBerita
+import com.basbas.lawanqfid.utama.model.youtube.ResponseYoutube
 import com.basbas.lawanqfid.utama.network.ApiInterface
 import com.basbas.lawanqfid.utama.network.ApiServiceFromSpreadsheet
 import com.basbas.lawanqfid.utama.ui.data_sebaran.DataSebaranActivity
 import com.basbas.lawanqfid.utama.ui.detail_berita.DetailBeritaActivity
 import com.basbas.lawanqfid.utama.ui.fragment.home_fragment.adapter.AdapterBerita
+import com.basbas.lawanqfid.utama.ui.fragment.home_fragment.adapter.AdapterYoutube
 import com.basbas.lawanqfid.utama.ui.fragment.home_fragment.model.ResponseDataFromSpreadSheet
 import com.basbas.lawanqfid.utama.ui.web.WebActivity
+import com.basbas.lawanqfid.utama.ui.youtube.DetailYoutubeActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.item_corona_meninggal.*
@@ -35,6 +38,7 @@ class HomeFragment : Fragment() {
 
 
      var adapterBerita : AdapterBerita? = null
+    var adapterYoutube : AdapterYoutube? =null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? { // Inflate the layout for this fragment
@@ -48,9 +52,11 @@ class HomeFragment : Fragment() {
         greetings()
         actionBtn()
         getBerita()
+        getYoutube()
 
         swipe?.setOnRefreshListener {
             getData()
+            getYoutube()
             getBerita()
             tv_sembuh?.text = "Loading..."
             tv_positif?.text = "Loading..."
@@ -61,11 +67,15 @@ class HomeFragment : Fragment() {
 
     private fun initView() {
         rv_berita?.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL ,false)
+        rv_youtube?.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL ,false)
     }
 
     private fun actionBtn() {
         tv_lihat_semua_berita.setOnClickListener {
             startActivity(Intent(activity, DetailBeritaActivity::class.java))
+        }
+        tv_lihat_semua_youtube.setOnClickListener {
+            startActivity(Intent(activity, DetailYoutubeActivity::class.java))
         }
 
         btn_seluruh_provinsi.setOnClickListener {
@@ -102,7 +112,29 @@ class HomeFragment : Fragment() {
         }
     }
 
+   fun getYoutube(){
+       val client = ApiServiceFromSpreadsheet.createService(ApiInterface::class.java)
+       val call = client.getDataYoutube("1--m45_J8JbHTZJSCp8cjN_p3anQfQh4_mhpL6GDS8L4", "Sheet1")
+       call.enqueue(object :Callback<ResponseYoutube>{
+           override fun onFailure(call: Call<ResponseYoutube>, t: Throwable) {
+                Log.e("TAG","error youtube ${t.toString()}")
+           }
+
+           override fun onResponse(call: Call<ResponseYoutube>, response: Response<ResponseYoutube>) {
+               Log.e("TAG","data youtube ${response.body()?.data?.get(0)?.image}")
+               if (response.isSuccessful) {
+                   val data = response.body()?.data
+                   if (data != null) {
+                       activity?.let { adapterYoutube =  AdapterYoutube(data, it) }
+                       rv_youtube?.adapter = adapterYoutube
+                       adapterYoutube?.notifyDataSetChanged()
+                   }
+               }
+           }
+       })
+    }
     private fun getBerita() {
+
         val client = ApiServiceFromSpreadsheet.createService(ApiInterface::class.java)
         val call = client.getDataBerita("1pbg0fV8rYGKc2tYSL04un80zvTg7vvYLlB4yk-PjQkQ", "1")
         call.enqueue(object : Callback<ResponseBerita> {
@@ -114,6 +146,7 @@ class HomeFragment : Fragment() {
 
                 Log.e("TAG","data berita ${response.body()?.data?.get(0)?.url_image}")
                 if (response.isSuccessful) {
+
                     val data = response.body()?.data
                     if (data != null) {
                         activity?.let { adapterBerita =  AdapterBerita(data, it) }
