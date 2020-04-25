@@ -12,8 +12,7 @@ public class ApiServiceFromSpreadsheet {
 
     private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
 
-    //berita
-//https://script.google.com/macros/s/AKfycbzr4cPpmQ8nwTQp0pUiEbIq40XPMANcGdCOY4Rsxe_6Wc0Y2fA/exec
+    //https://script.google.com/macros/s/AKfycbzMDMK24u4h7YeiB0F3C_ieqnPwwAWcOkuOVlvNw3kKBUdgI1T1/
     private static Retrofit.Builder builder =
             new Retrofit.Builder()
                     .baseUrl("https://script.google.com/macros/s/AKfycbzctxBEOf7kp94IBYM0GVQOmIYVgAiTScj_6iKh9ITGh8m2MRLp/")

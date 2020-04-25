@@ -25,7 +25,7 @@ class HomeActivity : BaseActivity() {
         loadFragment(HomeFragment())
         navigation.add(MeowBottomNavigation.Model(1,R.drawable.ic_home_black_24dp))
         navigation.add(MeowBottomNavigation.Model(2,R.drawable.ic_public_black_24dp))
-        navigation.add(MeowBottomNavigation.Model(3,R.drawable.ic_bantuan))
+        navigation.add(MeowBottomNavigation.Model(3,R.drawable.ic_help_black))
         navigation.setOnClickMenuListener {
             when(it.id){
                 1 -> loadFragment(HomeFragment())

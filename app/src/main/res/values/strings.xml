@@ -89,4 +89,11 @@
     <string name="update_url">u</string>
     <string name="feedback_url">feddbac</string>
     <string name="lihat_semua">Lihat Semua</string>
+
+    <string name="pref_key_notification" translatable="false">pref_key_notification</string>
+    <string name="pref_notification_title">Notification</string>
+    <string name="pref_notification_summary">Dapatkan Notif Setiap Hari.</string>
+    <string name="pref_key_answers" translatable="false">pref_key_answers</string>
+    <string name="selamat_datang_silahkan_mengisi_nama_panggilan_atau_nama_lengkap">Selamat Datang, silahkan mengisi nama panggilan atau nama lengkap dan Lokasi Anda</string>
+
 </resources>

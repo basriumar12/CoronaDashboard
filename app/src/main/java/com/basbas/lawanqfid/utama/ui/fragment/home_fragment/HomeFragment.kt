@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.basbas.lawanqfid.R
@@ -15,11 +16,13 @@ import com.basbas.lawanqfid.utama.model.berita.ResponseBerita
 import com.basbas.lawanqfid.utama.model.youtube.ResponseYoutube
 import com.basbas.lawanqfid.utama.network.ApiInterface
 import com.basbas.lawanqfid.utama.network.ApiServiceFromSpreadsheet
+import com.basbas.lawanqfid.utama.pref.UserSession
 import com.basbas.lawanqfid.utama.ui.data_sebaran.DataSebaranActivity
 import com.basbas.lawanqfid.utama.ui.detail_berita.DetailBeritaActivity
 import com.basbas.lawanqfid.utama.ui.fragment.home_fragment.adapter.AdapterBerita
 import com.basbas.lawanqfid.utama.ui.fragment.home_fragment.adapter.AdapterYoutube
 import com.basbas.lawanqfid.utama.ui.fragment.home_fragment.model.ResponseDataFromSpreadSheet
+import com.basbas.lawanqfid.utama.ui.setting.SettingActivity
 import com.basbas.lawanqfid.utama.ui.web.WebActivity
 import com.basbas.lawanqfid.utama.ui.youtube.DetailYoutubeActivity
 import com.google.android.material.snackbar.Snackbar
@@ -27,6 +30,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.item_corona_meninggal.*
 import kotlinx.android.synthetic.main.item_corona_positif.*
 import kotlinx.android.synthetic.main.item_corona_sembuh.*
+import kotlinx.android.synthetic.main.item_insert_name.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -36,7 +40,7 @@ import java.util.*
 
 class HomeFragment : Fragment() {
 
-
+        var name = ""
      var adapterBerita : AdapterBerita? = null
     var adapterYoutube : AdapterYoutube? =null
 
@@ -54,7 +58,12 @@ class HomeFragment : Fragment() {
         getBerita()
         getYoutube()
 
+        if (!activity?.let { UserSession(it).hasSession() }!!){
+            insertYourName()
+        }
         swipe?.setOnRefreshListener {
+            rv_youtube?.visibility = View.GONE
+            rv_berita?.visibility = View.GONE
             getData()
             getYoutube()
             getBerita()
@@ -73,6 +82,9 @@ class HomeFragment : Fragment() {
     private fun actionBtn() {
         tv_lihat_semua_berita.setOnClickListener {
             startActivity(Intent(activity, DetailBeritaActivity::class.java))
+        }
+        img_setting.setOnClickListener {
+            startActivity(Intent(activity, SettingActivity::class.java))
         }
         tv_lihat_semua_youtube.setOnClickListener {
             startActivity(Intent(activity, DetailYoutubeActivity::class.java))
@@ -93,36 +105,50 @@ class HomeFragment : Fragment() {
     }
 
     private fun greetings() {
+       val nameFromPref = activity?.let { UserSession(it).getUserName().toString() }.toString()
+        if (nameFromPref.equals("null")){
+           name =""
+
+        } else{
+            tv_lokasi.visibility = View.VISIBLE
+          name = nameFromPref
+        }
+
         val calendar: Calendar = Calendar.getInstance()
         val timeOfDay: Int = calendar.get(Calendar.HOUR_OF_DAY)
 
         if (timeOfDay >= 0 && timeOfDay < 12) {
-            tv_greeting.setText("Selamat Pagi #DiRumahAJa")
+            tv_greeting.setText("Selamat Pagi $name #DiRumahAJa")
 
         } else if (timeOfDay >= 12 && timeOfDay < 15) {
-            tv_greeting.setText("Selamat Siang #DiRumahAJa")
+            tv_greeting.setText("Selamat Siang $name #DiRumahAJa")
 
         } else if (timeOfDay >= 15 && timeOfDay < 18) {
-            tv_greeting.setText("Selamat Sore #DiRumahAJa")
+            tv_greeting.setText("Selamat Sore $name #DiRumahAJa")
 
         } else if (timeOfDay >= 18 && timeOfDay < 24) {
-            tv_greeting.setText("Selamat Malam #DiRumahAJa")
+            tv_greeting.setText("Selamat Malam $name #DiRumahAJa")
             tv_greeting.setTextColor(Color.WHITE)
 
         }
     }
 
    fun getYoutube(){
+       rv_youtube?.visibility = View.VISIBLE
+
+       loading_youtube?.visibility = View.VISIBLE
        val client = ApiServiceFromSpreadsheet.createService(ApiInterface::class.java)
        val call = client.getDataYoutube("1--m45_J8JbHTZJSCp8cjN_p3anQfQh4_mhpL6GDS8L4", "Sheet1")
        call.enqueue(object :Callback<ResponseYoutube>{
            override fun onFailure(call: Call<ResponseYoutube>, t: Throwable) {
                 Log.e("TAG","error youtube ${t.toString()}")
+               loading_youtube?.visibility = View.GONE
            }
 
            override fun onResponse(call: Call<ResponseYoutube>, response: Response<ResponseYoutube>) {
                Log.e("TAG","data youtube ${response.body()?.data?.get(0)?.image}")
                if (response.isSuccessful) {
+                   loading_youtube?.visibility = View.GONE
                    val data = response.body()?.data
                    if (data != null) {
                        activity?.let { adapterYoutube =  AdapterYoutube(data, it) }
@@ -134,19 +160,20 @@ class HomeFragment : Fragment() {
        })
     }
     private fun getBerita() {
-
+        rv_berita?.visibility = View.VISIBLE
+        loading_berita?.visibility = View.VISIBLE
         val client = ApiServiceFromSpreadsheet.createService(ApiInterface::class.java)
         val call = client.getDataBerita("1pbg0fV8rYGKc2tYSL04un80zvTg7vvYLlB4yk-PjQkQ", "1")
         call.enqueue(object : Callback<ResponseBerita> {
             override fun onFailure(call: Call<ResponseBerita>, t: Throwable) {
-
+                loading_berita?.visibility = View.GONE
             }
 
             override fun onResponse(call: Call<ResponseBerita>, response: Response<ResponseBerita>) {
 
                 Log.e("TAG","data berita ${response.body()?.data?.get(0)?.url_image}")
                 if (response.isSuccessful) {
-
+                    loading_berita?.visibility = View.GONE
                     val data = response.body()?.data
                     if (data != null) {
                         activity?.let { adapterBerita =  AdapterBerita(data, it) }
@@ -199,5 +226,32 @@ class HomeFragment : Fragment() {
                 }
             }
         })
+    }
+
+    fun insertYourName (){
+        val mDialogView = LayoutInflater.from(activity).inflate(R.layout.item_insert_name, null)
+        //AlertDialogBuilder
+        val mBuilder = context?.let {
+            AlertDialog.Builder(it)
+                .setView(mDialogView)
+                .setTitle("")
+        }
+        //show dialog
+        val  mAlertDialog = mBuilder?.show()
+
+        mDialogView.btn_simpan.setOnClickListener {
+            val nameView = mDialogView.edt_nama.text.toString()
+            activity?.let { UserSession(it).makeSession(nameView) }
+            Log.e("TAG","name $nameView")
+            greetings()
+            mAlertDialog?.dismiss()
+        }
+
+        mDialogView.btn_cancel.setOnClickListener {
+            mAlertDialog?.dismiss()
+        }
+
+
+
     }
 }

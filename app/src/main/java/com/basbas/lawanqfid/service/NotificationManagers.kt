@@ -15,7 +15,7 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import com.basbas.lawanqfid.R
-import com.basbas.lawanqfid.utama.ui.splash.SplashScreenActivity
+import com.basbas.lawanqfid.utama.ui.web.WebNotifActivity
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -37,12 +37,6 @@ class NotificationManagers(private val mCtx: Context) {
         val soundUri: Uri =
                 Uri.parse("android.resource://" + mCtx.packageName + "/" + R.raw.sirene)
 
-//        val contentView = RemoteViews(mCtx.getPackageName(), R.layout.custom_notifaction)
-//        contentView.setImageViewResource(R.id.image,
-//                R.drawable.ic_access_time)
-//        contentView.setTextViewText(R.id.title, title)
-
-
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             val mNotificationManager =
                     mCtx.getSystemService(Context.NOTIFICATION_SERVICE) as android.app.NotificationManager
@@ -63,11 +57,11 @@ class NotificationManagers(private val mCtx: Context) {
 
             mNotificationManager.createNotificationChannel(mChannel)
         }
-        val drawable = ContextCompat.getDrawable(mCtx, R.mipmap.odp)
+        val drawable = ContextCompat.getDrawable(mCtx, R.mipmap.pdp)
         val bitmap = (drawable as BitmapDrawable?)?.bitmap
         val mBuilder =
                 NotificationCompat.Builder(mCtx, "Constant.CHANNEL_ID")
-                        .setSmallIcon(R.mipmap.odp)
+                        .setSmallIcon(R.mipmap.pdp)
                         .setLargeIcon(bitmap)
                         .setContentTitle(title)
                         .setVibrate(longArrayOf(1000, 1000, 1000, 1000, 1000))
@@ -86,7 +80,7 @@ class NotificationManagers(private val mCtx: Context) {
         }
 
         //intent splash
-        val resultIntent = Intent(mCtx, SplashScreenActivity::class.java)
+        val resultIntent = Intent(mCtx, WebNotifActivity::class.java)
         resultIntent.putExtra("url", url)
 
         val pendingIntent = PendingIntent.getActivity(

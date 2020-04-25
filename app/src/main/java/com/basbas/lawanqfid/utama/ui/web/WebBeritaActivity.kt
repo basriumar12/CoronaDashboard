@@ -2,11 +2,11 @@ package com.basbas.lawanqfid.utama.ui.web
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.webkit.WebChromeClient
+import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import com.basbas.lawanqfid.R
 import com.basbas.lawanqfid.utama.model.berita.DataItem
-import kotlinx.android.synthetic.main.activity_web.*
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_web_berita.*
 
 class WebBeritaActivity : AppCompatActivity() {
@@ -20,9 +20,16 @@ class WebBeritaActivity : AppCompatActivity() {
         dataItem = intent.getParcelableExtra("DATA")
         supportActionBar?.title =dataItem.nama_berita
 
-        web_berita.webChromeClient = WebChromeClient()
-        web_berita.settings.javaScriptEnabled = true
-        web_berita.loadData(dataItem.isi_berita,"text/html", "UTF-8")
+        try {
+
+
+            web_berita.webViewClient = WebViewClient()
+            web_berita.settings.javaScriptEnabled = true
+            web_berita.loadData(dataItem.isi_berita, "text/html", "UTF-8")
+        }catch (e : Exception){
+            Snackbar.make(container_web,"Hanphone anda tidak di support", Snackbar.LENGTH_LONG).show()
+
+        }
 
     }
 
@@ -33,11 +40,5 @@ class WebBeritaActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onBackPressed() {
-        if (web.canGoBack()){
-            web.goBack()
-        } else{
-            finish()
-        }
-    }
+
 }

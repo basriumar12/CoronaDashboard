@@ -27,6 +27,7 @@
                 android:scaleType="centerCrop" />
 
             <ImageView
+                android:id="@+id/img_setting"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_alignParentRight="true"
@@ -35,8 +36,9 @@
                 android:src="@drawable/ic_settings_black_24dp" />
 
             <TextView
+                android:layout_toLeftOf="@+id/img_setting"
                 android:id="@+id/tv_greeting"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
@@ -44,26 +46,51 @@
                 android:fontFamily="@font/roboto"
                 android:text="Loading...."
                 android:textColor="@android:color/white"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 tools:targetApi="jelly_bean" />
 
             <TextView
+                android:layout_marginTop="6dp"
+                android:layout_below="@+id/tv_greeting"
                 android:id="@+id/tv_cegah"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="50dp"
                 android:fontFamily="@font/poppinsbold"
-                android:text="Ayo Bersama-sama kita  \Lawan Covid-19 "
+                android:text="Ayo Bersama-sama   \nKita Lawan Covid-19 "
                 android:textColor="@android:color/white"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 tools:targetApi="jelly_bean" />
+            <TextView
+                android:visibility="gone"
+                android:layout_marginTop="6dp"
+                android:layout_below="@+id/tv_cegah"
+                android:id="@+id/tv_lokasi"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/fontfamily"
+                android:text="Anda Berada Dilokasi Zona Merah \nSelalu berhati-hati. "
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                tools:targetApi="jelly_bean" />
+
+            <ImageView
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/tv_greeting"
+                app:srcCompat="@drawable/ic_sembuh_white"
+                android:layout_toRightOf="@+id/tv_cegah"
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="150dp"
+                android:layout_marginTop="165dp"
                 android:background="@drawable/bg_half_corner"
                 android:orientation="vertical"
                 android:paddingLeft="20dp"
@@ -280,6 +307,13 @@
                         tools:targetApi="jelly_bean" />
 
                 </LinearLayout>
+                <include
+                    android:visibility="gone"
+                    layout="@layout/loading_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:id="@+id/loading_berita"
+                    />
 
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -321,7 +355,16 @@
 
                 </LinearLayout>
 
+                <include
+                    android:visibility="gone"
+                    layout="@layout/loading_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:id="@+id/loading_youtube"
+                    />
+
                 <androidx.recyclerview.widget.RecyclerView
+                    android:layout_marginBottom="30dp"
                     android:id="@+id/rv_youtube"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

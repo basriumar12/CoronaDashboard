@@ -49,7 +49,7 @@
             android:text="loading..."
             android:textColor="@color/cfdialog_button_white_text_color"
             android:layout_centerInParent="true"
-      
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
