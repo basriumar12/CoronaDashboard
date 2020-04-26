@@ -7,7 +7,6 @@ import com.basbas.lawanqfid.R
 import com.basbas.lawanqfid.utama.base.BaseActivity
 import com.basbas.lawanqfid.utama.ui.fragment.bantuan.BantuanFragment
 import com.basbas.lawanqfid.utama.ui.fragment.home_fragment.HomeFragment
-import com.basbas.lawanqfid.utama.ui.fragment.map.MapsWorldFragment
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.iid.FirebaseInstanceId
@@ -24,13 +23,13 @@ class HomeActivity : BaseActivity() {
 
         loadFragment(HomeFragment())
         navigation.add(MeowBottomNavigation.Model(1,R.drawable.ic_home_black_24dp))
-        navigation.add(MeowBottomNavigation.Model(2,R.drawable.ic_public_black_24dp))
-        navigation.add(MeowBottomNavigation.Model(3,R.drawable.ic_help_black))
+        //navigation.add(MeowBottomNavigation.Model(2,R.drawable.ic_public_black_24dp))
+        navigation.add(MeowBottomNavigation.Model(2,R.drawable.ic_help_black))
         navigation.setOnClickMenuListener {
             when(it.id){
                 1 -> loadFragment(HomeFragment())
-                2 -> loadFragment(MapsWorldFragment())
-                3 -> loadFragment(BantuanFragment())
+                //2 -> loadFragment(MapsWorldFragment())
+                2 -> loadFragment(BantuanFragment())
                 else -> null
             }
         }
