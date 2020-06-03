@@ -177,6 +177,9 @@ dependencies {
 
     implementation 'androidx.legacy:legacy-preference-v14:1.0.0'
 
+    def work_version = "1.0.0-beta02"
+    implementation "android.arch.work:work-runtime-ktx:$work_version"
+
 }
 repositories {
     mavenCentral()
