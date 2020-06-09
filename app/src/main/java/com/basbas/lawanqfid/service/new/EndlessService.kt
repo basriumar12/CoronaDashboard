@@ -14,6 +14,7 @@ import com.basbas.lawanqfid.R
 import com.basbas.lawanqfid.utama.ui.home.HomeActivity
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.core.extensions.jsonBody
+import id.co.iconpln.airsale.service.NotificationManagers
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -30,6 +31,12 @@ class EndlessService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        NotificationManagers(this).displayNotification(
+                "title",
+                "  body",
+                "",
+                "imageUrl"
+        )
         log("onStartCommand executed with startId: $startId")
         if (intent != null) {
             val action = intent.action
@@ -53,6 +60,7 @@ class EndlessService : Service() {
         log("The service has been created".toUpperCase())
         val notification = createNotification()
         startForeground(1, notification)
+
     }
 
     override fun onDestroy() {
@@ -67,6 +75,7 @@ class EndlessService : Service() {
         Toast.makeText(this, "Service starting its task", Toast.LENGTH_SHORT).show()
         isServiceStarted = true
         setServiceState(this, ServiceState.STARTED)
+
 
         // we need this lock so our service gets not affected by Doze Mode
         wakeLock =
