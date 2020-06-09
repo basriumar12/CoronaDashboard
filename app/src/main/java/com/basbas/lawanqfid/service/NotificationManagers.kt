@@ -1,4 +1,4 @@
-package com.basbas.lawanqfid.service
+package id.co.iconpln.airsale.service
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -14,8 +14,9 @@ import android.net.Uri
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
-import com.basbas.lawanqfid.R
-import com.basbas.lawanqfid.utama.ui.web.WebNotifActivity
+import id.co.iconpln.airsale.R
+import id.co.iconpln.airsale.ui.home.HomeActivityV2
+import id.co.iconpln.airsale.ui.home.HomeFragment
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -34,8 +35,8 @@ class NotificationManagers(private val mCtx: Context) {
     ) {
 
 
-        val soundUri: Uri =
-                Uri.parse("android.resource://" + mCtx.packageName + "/" + R.raw.sirene)
+//        val soundUri: Uri =
+//                Uri.parse("android.resource://" + mCtx.packageName + "/" + R.raw.sirene)
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             val mNotificationManager =
@@ -49,25 +50,23 @@ class NotificationManagers(private val mCtx: Context) {
             mChannel.enableVibration(true)
 
 
-            val audioAttributes = AudioAttributes.Builder()
-                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                    .setUsage(AudioAttributes.USAGE_NOTIFICATION)
-                    .build()
-            mChannel.setSound(soundUri, audioAttributes)
+//            val audioAttributes = AudioAttributes.Builder()
+//                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+//                    .setUsage(AudioAttributes.USAGE_NOTIFICATION)
+//                    .build()
+//            mChannel.setSound(soundUri, audioAttributes)
 
             mNotificationManager.createNotificationChannel(mChannel)
         }
-        val drawable = ContextCompat.getDrawable(mCtx, R.mipmap.pdp)
+        val drawable = ContextCompat.getDrawable(mCtx, R.mipmap.ic_launcher_foreground)
         val bitmap = (drawable as BitmapDrawable?)?.bitmap
         val mBuilder =
                 NotificationCompat.Builder(mCtx, "Constant.CHANNEL_ID")
-                        .setSmallIcon(R.mipmap.pdp)
+                        .setSmallIcon(R.mipmap.ic_launcher)
                         .setLargeIcon(bitmap)
                         .setContentTitle(title)
                         .setVibrate(longArrayOf(1000, 1000, 1000, 1000, 1000))
-                        .setSound(soundUri)
-                        .setAutoCancel(true)
-                        .setOngoing(true)
+                        //.setSound(soundUri)
                         .setContentText(body)
                         .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
@@ -80,7 +79,7 @@ class NotificationManagers(private val mCtx: Context) {
         }
 
         //intent splash
-        val resultIntent = Intent(mCtx, WebNotifActivity::class.java)
+        val resultIntent = Intent(mCtx, HomeActivityV2::class.java)
         resultIntent.putExtra("url", url)
 
         val pendingIntent = PendingIntent.getActivity(
