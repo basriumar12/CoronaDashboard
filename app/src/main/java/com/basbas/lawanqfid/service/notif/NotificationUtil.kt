@@ -9,21 +9,21 @@ import android.media.RingtoneManager
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
-import id.co.iconpln.airsale.R
-import id.co.iconpln.airsale.ui.setting.SettingActivity
+import com.basbas.lawanqfid.R
+import com.basbas.lawanqfid.utama.ui.home.HomeActivity
 import kotlin.random.Random
 
 class NotificationUtil(private val context: Context) {
 
     fun showNotification(title: String, message: String) {
-        val intent = Intent(context, SettingActivity::class.java)
+        val intent = Intent(context, HomeActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         val pendingIntent = PendingIntent.getActivity(
                 context, 0, intent,
                 PendingIntent.FLAG_ONE_SHOT
         )
 
-        val channelId = context.getString(R.string.default_notification_channel_id)
+        val channelId = "asasas"
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val notificationBuilder = NotificationCompat.Builder(context, channelId)
                 .setColor(ContextCompat.getColor(context, android.R.color.holo_red_dark))

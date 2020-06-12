@@ -8,15 +8,11 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
-import android.graphics.drawable.BitmapDrawable
-import android.media.AudioAttributes
-import android.net.Uri
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
-import id.co.iconpln.airsale.R
-import id.co.iconpln.airsale.ui.home.HomeActivityV2
-import id.co.iconpln.airsale.ui.home.HomeFragment
+import com.basbas.lawanqfid.R
+import com.basbas.lawanqfid.utama.ui.home.HomeActivity
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -58,12 +54,12 @@ class NotificationManagers(private val mCtx: Context) {
 
             mNotificationManager.createNotificationChannel(mChannel)
         }
-        val drawable = ContextCompat.getDrawable(mCtx, R.mipmap.ic_launcher_foreground)
-        val bitmap = (drawable as BitmapDrawable?)?.bitmap
+        val drawable = ContextCompat.getDrawable(mCtx, R.mipmap.ic_launcher)
+//        val bitmap = (drawable as BitmapDrawable?)?.bitmap
         val mBuilder =
                 NotificationCompat.Builder(mCtx, "Constant.CHANNEL_ID")
                         .setSmallIcon(R.mipmap.ic_launcher)
-                        .setLargeIcon(bitmap)
+                    //    .setLargeIcon(bitmap)
                         .setContentTitle(title)
                         .setVibrate(longArrayOf(1000, 1000, 1000, 1000, 1000))
                         //.setSound(soundUri)
@@ -72,14 +68,14 @@ class NotificationManagers(private val mCtx: Context) {
 
         //set image notif
         val imageUrl = getBitmapfromUrl(imageUrl.toString())
-        if (imageUrl != null){
-            mBuilder.setStyle(NotificationCompat.BigPictureStyle()
-                    .bigPicture(imageUrl)
-                    .bigLargeIcon(null)).setLargeIcon(bitmap)
-        }
+//        if (imageUrl != null){
+//            mBuilder.setStyle(NotificationCompat.BigPictureStyle()
+//                    .bigPicture(imageUrl)
+//                    .bigLargeIcon(null)).setLargeIcon(bitmap)
+//        }
 
         //intent splash
-        val resultIntent = Intent(mCtx, HomeActivityV2::class.java)
+        val resultIntent = Intent(mCtx, HomeActivity::class.java)
         resultIntent.putExtra("url", url)
 
         val pendingIntent = PendingIntent.getActivity(

@@ -3,10 +3,13 @@ package com.basbas.lawanqfid.service
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
+import com.basbas.lawanqfid.service.new.EndlessService
+import com.basbas.lawanqfid.service.new.log
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
@@ -28,15 +31,26 @@ open class FirebaseMessageService : FirebaseMessagingService() {
         val title = remoteMessage.notification!!.title
         val body = remoteMessage.notification!!.body
         val imageUrl = remoteMessage.notification!!.imageUrl.toString()
-        NotificationManagers(this).displayNotification(
-                title,
-                body,
-                remoteMessage.data["url"],
-                imageUrl
-        )
+//        NotificationManagers(this).displayNotification(
+//                title,
+//                body,
+//                remoteMessage.data["url"],
+//                imageUrl
+//        )
         if (remoteMessage.data.size > 0) {
             Log.e("TAG", "notif " + remoteMessage.notification!!.body)
 
+        }
+
+        Intent(this, EndlessService::class.java).also {
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                log("Starting the service in >=26 Mode")
+                startForegroundService(it)
+                return
+            }
+            log("Starting the service in < 26 Mode")
+            startService(it)
         }
         /*if (remoteMessage.getNotification() != null) {
             //Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
